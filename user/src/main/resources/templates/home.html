@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                url('/background.png.png');
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 35px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 250px;
+            margin: auto;
+        }
+
+        .links a {
+            text-decoration: none;
+            background: white;
+            color: black;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .links a:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>User Management System</h1>
+
+    <div class="links">
+
+        <a th:href="@{/users}">
+            List Users
+        </a>
+
+        <a th:href="@{/users/add}">
+            Add User
+        </a>
+
+        <a th:href="@{/users/delete}">
+            Delete User
+        </a>
+
+        <a th:href="@{/users/update}">
+            Update User
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

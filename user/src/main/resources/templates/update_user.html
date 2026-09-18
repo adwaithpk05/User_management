@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Add User</title>
+    <title>Update User</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -22,7 +22,7 @@
             align-items: center;
         }
 
-        /* Navigation buttons */
+        /* Navigation */
         .navigation {
             position: fixed;
             top: 20px;
@@ -40,18 +40,18 @@
             padding: 10px 18px;
             border-radius: 8px;
             font-size: 15px;
-            transition: 0.3s;
             border: none;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .nav-btn:hover {
             background: rgba(255, 255, 255, 0.35);
         }
 
-        /* Form container */
+        /* Main container */
         .container {
-            width: 400px;
+            width: 420px;
             padding: 35px;
             background: white;
             border-radius: 15px;
@@ -60,8 +60,14 @@
 
         h1 {
             text-align: center;
-            margin-bottom: 30px;
             color: #333;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
         }
 
         label {
@@ -92,7 +98,8 @@
             margin-bottom: 15px;
         }
 
-        .add-btn {
+        /* Update button */
+        .update-btn {
             width: 100%;
             padding: 12px;
             border: none;
@@ -101,10 +108,10 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            transition: 0.3s;
         }
 
-        .add-btn:hover {
+        .update-btn:hover {
             background: #5568d8;
         }
 
@@ -130,21 +137,39 @@
 </div>
 
 
-<!-- Add User Form -->
+<!-- Main Update Form -->
 <div class="container">
 
-    <h1>Add User</h1>
+    <h1>Update User</h1>
 
-    <form th:action="@{/users/add}"
+    <form th:action="@{/users/update}"
           th:object="${user}"
           method="post">
 
+        <h3>Enter the user details</h3>
 
-        <!-- Name -->
+
+        <!-- ================= ID ================= -->
+
+        <label>ID:</label>
+
+        <input type="number"
+               th:field="*{id}"
+               required>
+
+        <div class="error"
+             th:if="${#fields.hasErrors('id')}"
+             th:errors="*{id}">
+        </div>
+
+
+        <!-- ================= NAME ================= -->
+
         <label>Name:</label>
 
         <input type="text"
-               th:field="*{name}">
+               th:field="*{name}"
+               required>
 
         <div class="error"
              th:if="${#fields.hasErrors('name')}"
@@ -152,11 +177,13 @@
         </div>
 
 
-        <!-- Email -->
+        <!-- ================= EMAIL ================= -->
+
         <label>Email:</label>
 
         <input type="email"
-               th:field="*{email}">
+               th:field="*{email}"
+               required>
 
         <div class="error"
              th:if="${#fields.hasErrors('email')}"
@@ -164,11 +191,13 @@
         </div>
 
 
-        <!-- Mobile -->
+        <!-- ================= MOBILE ================= -->
+
         <label>Mobile:</label>
 
         <input type="text"
-               th:field="*{mobNumber}">
+               th:field="*{mobNumber}"
+               required>
 
         <div class="error"
              th:if="${#fields.hasErrors('mobNumber')}"
@@ -176,10 +205,11 @@
         </div>
 
 
-        <!-- Submit -->
-        <button class="add-btn"
+        <!-- ================= BUTTON ================= -->
+
+        <button class="update-btn"
                 type="submit">
-            Add User
+            Update User
         </button>
 
     </form>

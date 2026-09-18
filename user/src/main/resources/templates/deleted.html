@@ -57,16 +57,16 @@
         }
 
         h1 {
-            color: #333;
             margin-bottom: 30px;
+            color: #333;
         }
 
-        /* Action links */
+        /* Links */
         .action-link {
             display: block;
             text-decoration: none;
-            color: white;
             background: #667eea;
+            color: white;
             padding: 12px;
             margin: 12px 0;
             border-radius: 7px;
@@ -95,13 +95,18 @@
 
 </div>
 
-<!-- Success message -->
+
+<!-- Success Message -->
 <div class="container">
 
     <h1 th:text="${message}"></h1>
 
     <a class="action-link" th:href="@{/users/add}">
         ➕ Add another user
+    </a>
+
+    <a class="action-link" th:href="@{/users/delete}">
+        🗑 Delete another user
     </a>
 
     <a class="action-link" th:href="@{/users}">
